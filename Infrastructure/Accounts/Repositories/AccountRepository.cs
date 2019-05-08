@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Application.Accounts.Models;
 using Application.Accounts.Repositories;
 using Infrastructure.Common;
@@ -14,5 +15,8 @@ namespace Infrastructure.Accounts.Repositories
             : base(context)
         {
         }
+
+        public IQueryable GetAllPermissionsAsQuaryable()
+            => this._context.Set<AccountGroups>().AsQueryable();
     }
 }
